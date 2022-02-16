@@ -1,0 +1,40 @@
+{% load static %}
+{% block content %}
+<div class="modal fade" id="addNewTask" tabindex="-1" role="dialog" aria-labelledby="addTask"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center bg-ot">
+        <h4 class="modal-title white-text w-100 fw-bolder py-2">You can add new task here</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Body-->
+        <form method="post" action="{% url 'todoAPI' %}">
+        {% csrf_token %}
+            <div class="modal-body">
+                <div class="md-form mb-2">
+                <i class="bi bi-journal-minus"></i>
+                <label class="col-form-label" for="id_name">Task</label>
+                <input name="name" type="text" id="id_name" class="form-control validate" placeholder="Name for your task..." required>
+                </div>
+
+                <div class="md-form">
+                <i class="bi bi-journal-text"></i>
+                <label class="col-form-label" for="id_note">Notes</label>
+                <textarea name="notes" class="form-control" id="id_note" required></textarea>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <button type="submit" class="btn btn-outline-success waves-effect">Create Task<i class="bi bi-arrow-right"></i></button>
+            </div>
+        </form>    
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+{% endblock content %}

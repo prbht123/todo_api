@@ -1,0 +1,349 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title%}
+
+{% block content %}
+
+<!--First Navigation-->
+<aside>
+    <!-- First Sidebar -->
+    <div class="container left-sidebar">
+        <ul class="nav flex-column" >
+            <li class="nav-item" >
+                <h4 class="work text-ot" style="display: inline-block;">To_Do</h4>   
+            </li>
+                <li class="nav-item">
+                    <!-- horizontal tab start -->
+                    <ul class="nav nav-tabs mb-3" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link fw-bolder text-dark side-tab active" href="#list" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab" aria-controls="list" aria-selected="true">List</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link fw-bolder text-dark side-tab" href="#tags" data-bs-toggle="tab" data-bs-target="#tags" type="button" role="tab" aria-controls="tags" aria-selected="false">Tags</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link fw-bolder text-dark side-tab" href="#custom" data-bs-toggle="tab" data-bs-target="#custom" type="button" role="tab" aria-controls="custom" aria-selected="false">Custom</a>
+                        </li>
+                    </ul>
+                    <!-- horizontal tab end -->
+                </li>
+
+                <!-- tab-content start -->
+                <div class="tab-content mb-3">
+                    <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                        <ul class="nav justify-content-left flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-briefcase"></i> Work</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-laptop"></i> Personal</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-people"></i> Social</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="tags" role="tabpanel" aria-labelledby="tags-tab">
+                        <ul class="nav justify-content-left flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-briefcase"></i> Todo</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-laptop"></i> Done</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-people"></i> Future</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="custom-tab">
+                        <ul class="nav justify-content-left flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-briefcase"></i> Past</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-laptop"></i> Present</a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-people"></i> Future</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- tab-content end -->
+
+
+                <!-- create-list start -->
+                <div class="create-list mb-4">
+                    <div class="create-lst">
+                        <p class="text-ot create-list"><i class="text-dark bi bi-list-task"></i> <b>Create list</b> <i class="bi bi-plus-lg"></i></p>
+                    </div>
+                </div>
+                <!-- create-list end -->
+
+
+                <!-- filters start -->
+                <div class="filters mb-4">
+                    <div class="bottom">
+                        <p class="text-ot filter-text"><b>Filters</b></p>
+                    </div>
+                </div>
+
+                    <div class="all-filters my-4">
+                        <ul class="nav justify-content-left flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-disc-fill"></i> Active Task</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-receipt"></i> Assigned to me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-box-arrow-in-up"></i> Upcoming</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-hourglass-split"></i> Overdue</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="bi bi-check-lg"></i> Completed</a>
+                            </li>                            
+                        </ul>
+                    </div>
+                <!-- filters end -->
+
+                <div class="add-task">
+                    <button class="btn-ot btn-lg py-3 px-4" data-bs-toggle="modal" data-bs-target="#addNewTask"><b>Add Task</b> <i class="bi bi-plus-lg"></i></button>
+                </div>
+        </ul>
+
+    </div>
+    <!-- First Sidebar -->
+</aside>
+<!--First Navigation-->
+
+
+
+<!-- Add task model start-->
+{% include 'base/addtask.html' %}
+<!-- Add task model end-->
+
+
+
+<main class="bd-main">
+    <div class="container mt-4 px-lg-3">
+        <div class="row">
+<!-- ############################################# Main layout #########################################################-->
+            <div class="col-lg-8 col-md-12 align-self-center px-5">
+                    
+                <div class="input-group d-none d-lg-flex mx-4">
+                    <input class="form-control rounded-end pe-5" type="text" placeholder="Find your tasks...">
+                    <i class="bi bi-search position-absolute text-muted right-0 me-3 put-center"></i>
+                </div>
+
+                <div class="m-4 heading-texts">
+                    <h2 class="work text-ot"><b>Work</b></h2>
+                    <p>Successive syncs are faster if they are performed within the hour, which is the timeout for Asana’s sync token. You may specify to sync only specific workspaces, projects or models.
+                    </p>
+                </div>
+
+                <!-- cards start -->
+                <div class="custom-cards" >
+
+
+
+
+                    <ul class="nav nav-tabs mb-3" role="tablist">
+                        {% for data in tasks %}
+                            <li class="nav-item w-100" role="presentation">
+                                <a class="nav-link main-tab {% ifchanged  %} active {% endifchanged %}" href="#jb{{ data.gid }}" data-bs-toggle="tab" data-bs-target="#jb{{ data.gid }}" type="button" role="tab" aria-controls="jb{{ data.gid }}" aria-selected="{% ifchanged %} true {% else %} false {% endifchanged %}">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-start custom-card">
+                                            <div class="ms-2 me-auto">
+                                            <div class="fw-bolder fs-4">{{ data.name }}</div>
+                                            <small class=" text-muted">{{ data.created_at|slice:":10" }}</small>
+                                            </div>
+                                            {% if data.completed %}
+                                                <span class="badge bg-blue">Completed</span>
+                                            {% else %}
+                                                <span class="badge bg-purple">Active task</span>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+               
+                </div>
+                <!-- cards end --> 
+            </div>
+<!-- ############################################### Main layout ###################################################-->
+
+            <!-- right sidebar start -->
+            <div class="col-lg-4 d-none d-lg-block rtsb">
+                <!-- Right Sidebar -->
+                <div class="container right-sidebar">
+
+                        <ul class="nav justify-content-end mb-5">
+                            <li class="nav-item float-right">
+                                <a class="nav-link text-dark" href="/"><i class="bi bi-bell-fill"></i></a>
+                            </li>
+                            <li class="nav-item float-right rounded-circle avatar">
+                                <div>
+                                    <a class="nav-link rounded-circle p-1" href=""><img src="{% static 'img/female-avatar.png' %}" alt="Avatar" height="30"></a>
+                                </div>
+                            </li>
+                        </ul>
+
+
+
+
+                            <div class="tab-content mb-3 rsb-content">
+
+                                {% for data in tasks %}
+                                    <div class="tab-pane fade {% ifchanged  %} show active {% endifchanged %}" id="jb{{ data.gid }}" role="tabpanel" aria-labelledby="jb{{ data.gid }}-tab">
+                                        <div class="card" style="width: auto;">
+                                            <div class="card-body">
+                                                <div class="card-top mb-3">
+                                                    <h5 class="card-title fw-bolder fs-4">{{ data.name }}</h5>
+                                                    <small class="card-subtitle mb-2 text-muted">{{ data.created_at|slice:":10" }}</small> 
+                                                    {% if data.completed %}
+                                                        <span class="badge bg-blue">Completed</span>
+                                                    {% else %}
+                                                        <span class="badge bg-purple">Active task</span>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="summary my-3">
+                                                    <h2 class="fw-bolder fs-4">Summary</h2>
+                                                </div>
+                                                <div class="card-text">
+                                                
+                                                    <br>
+                                                    <a class="btn update-btn" data-gid="jb{{ data.gid }}" data-bs-toggle="modal" data-bs-target="#updateTask">
+                                                        <i class="bi bi-pencil-square float-right text-ot"></i>
+                                                    </a>
+                                                    <br><br>
+                                                    {% if data.notes == '' %}
+                                                    <p>There is no notes for this task...</p>
+                                                    {% else %}
+                                                    <p>{{ data.notes }}</p>
+                                                    {% endif %}
+
+
+                                                    <div class="delete-me float-right d-flex justify-content-center">
+                                                        <button type="button" class="btn btn-lg btn-outline-danger float-right my-3"  data-gid="{{ data.gid }}">Delete</button>
+                                                    </div> 
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+<script>
+ 
+  let c_card = document.querySelectorAll('.custom-cards a[data-bs-toggle="tab"]')
+  
+  c_card.forEach(elem => 
+    elem.addEventListener('click',function(e){
+
+    //console.log(this.getAttribute('data-bs-target'))
+    let req_id = this.getAttribute('data-bs-target')
+    
+    let a_tag = document.querySelector(`${req_id} a`)
+    a_tag.addEventListener('click', function(){
+            h5_sele = document.querySelector(`${req_id} h5`);
+  //console.log(h5_sele.textContent)
+  p_sele = document.querySelector(`${req_id} p`);
+  //console.log(p_sele.textContent)
+  a_sele = document.querySelector(`${req_id} a`).getAttribute('data-gid')
+  //console.log(a_sele)
+    
+    model_form = document.querySelector("#updateTask form")
+    model_form.elements['name'].value = h5_sele.textContent
+    model_form.elements['notes'].value = p_sele.textContent
+    model_form.elements['gid'].value = req_id.slice(3)
+    gid = req_id.slice(3)
+
+    })
+
+  }
+
+  )
+  
+  )
+
+
+    deleteMe = document.querySelectorAll('button[data-gid]')
+    deleteMe.forEach(element => {
+        element.addEventListener('click', function(e){
+            gid = e.target.getAttribute('data-gid')
+            deleteRequest(gid);
+        })
+    });
+
+    
+    
+    
+    function deleteRequest(gid){
+        let httpRequest = new XMLHttpRequest();
+        if (!httpRequest) {
+                alert('Giving up :( Cannot create an XMLHTTP instance');
+                return false;
+            }
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('GET', `/api/delete/${gid}`);
+            httpRequest.send();
+    
+            function alertContents() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    alert(`${httpRequest.responseText} Successfully deleted`);
+                    window.location.reload()
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+        }
+    }
+      
+
+
+</script>
+
+
+                    <div class="input-group mb-3">
+                        <span for="notes" class="border-0 fw-bolder fs-4 me-3">Notes</span>
+                        <input type="text" class="form-control rounded" placeholder="Add notes..." id="notes">
+                    </div>
+
+
+                </div>
+                <!-- Right Sidebar -->
+            </div>
+            <!-- right sidebar start -->
+
+        </div>
+    </div>
+</main>
+
+
+{% include 'base/updateTask.html' %}
+
+
+
+
+
+{% endblock content %}

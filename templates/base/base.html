@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'base/head.html' %}
+    <title>{% block title %} TODO |  {% endblock title %}</title>
+</head>
+<body>
+    <div class="officialtech">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+
+    <!-- all cdn scripts will go below -->
+    {% include 'base/script.html' %}
+</body>
+</html>
